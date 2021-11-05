@@ -1,0 +1,32 @@
+{
+    "Home" : 
+    {
+        "link" : "/",
+        "page_content" : "content/index.md",
+        "template" : "index.html"
+    },
+    "Projects" : 
+    {
+        "link" : "/projects",
+        "page_content" : "content/projects/",
+        "template" : "projects.html"
+    },
+    "Blog" : 
+    {
+        "link" : "/blog",
+        "page_content" : "content/blog",
+        "template" : "blog.html"
+    },
+    "Links" : 
+    {
+        "link" : "/links",
+        "page_content" : "content/links.md",
+        "template" : "links.html"
+    },
+    "Contact" : 
+    {
+        "link" : "/contact",
+        "page_content" : "content/contact.md",
+        "template" : "contact.html"
+    }
+}

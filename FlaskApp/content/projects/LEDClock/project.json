@@ -1,0 +1,8 @@
+{
+    "name" : "LED Clock", 
+    "topics" : "Electronics",
+    "brief" : "A simple LED clock based on the neopixel rings. One version has 1 24 ring LED and one version has 1 24 ring LED and 1 12 ring LED.",
+    "content" : "ledclock.md",
+    "date_posted" : "2021-11-01",
+    "date_modified" : "2021-11-02"
+}

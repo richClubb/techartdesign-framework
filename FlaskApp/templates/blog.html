@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tech Art Design - Homepage</title>
+        <link rel="stylesheet" type="text/css" href="/static/main.css"/>
+    </head>
+    <body>
+        <div class="site-title">
+            <h1>Tech Art Design</h1>
+        </div>
+        <div class="nav-site">
+            <ul>
+                {% for a in links %}
+                    <li><a href="{{ links[a].link }}">{{ a }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="main-body">
+            <div class="nav-page">
+                <h1>Recent Activity</h1>
+                <ul>
+                    {% for item in recent_activity_list %}
+                    <li><a href="{{ item[2] }}">{{ item[0] }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="content">
+                <div class="content-title">
+                    {{ blog_overview_content | markdown }}
+                </div>
+                <hr/>
+                {% for blog in blogs %}
+                <div class="blogpost-brief">
+                    <h1><a href="{{ blogs[blog].link }}">{{ blogs[blog].title }}</a></h1>
+                    <p>Brief: {{ blogs[blog].brief }}</p>
+                    <p>Topics: {{ blogs[blog].topics }}</p>
+                </div>
+                <hr/>
+                {% else %}
+                <p>{{ error_text }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>

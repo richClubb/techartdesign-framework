@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tech Art Design - Homepage</title>
+        <link rel="stylesheet" type="text/css" href="/static/main.css"/>
+    </head>
+    <body>
+        <div class="site-title">
+            <h1>Tech Art Design</h1>
+        </div>
+        <div class="nav-site">
+            <ul>
+                {% for a in links %}
+                    <li><a href="{{ links[a].link }}">{{ a }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="main-body">
+            <div class="nav-page">
+                <h1>Headings</h1>
+                <ul>
+                    <li>Heading 1</li>
+                    <li>Heading 2</li>
+                </ul>
+            </div>
+            <div class="content">
+                {{ blog_text | markdown }}
+            </div>
+        </div>
+    </body>
+</html>

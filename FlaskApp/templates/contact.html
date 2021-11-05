@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tech Art Design - Homepage</title>
+        <link rel="stylesheet" type="text/css" href="/static/main.css"/>
+    </head>
+    <body>
+        <div class="site-title">
+            <h1>Tech Art Design</h1>
+        </div>
+        <div class="nav-site">
+            <ul>
+                {% for a in links %}
+                    <li><a href="{{ links[a].link }}">{{ a }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="main-body">
+            <div class="nav-page">
+                <h1>Recent Activity</h1>
+                <ul>
+                {% for item in activity_list %}
+                    <li><a href="{{ item[2] }}">{{ item[3] }} - {{ item[0] }}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="content">
+                {{ contact_content | markdown }}
+            </div>
+        </div>
+    </body>
+</html>

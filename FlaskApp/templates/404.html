@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Tech Art Design - Homepage</title>
+        <link rel="stylesheet" type="text/css" href="/static/main.css"/>
+    </head>
+    <body>
+        <div class="site-title">
+            <h1>Tech Art Design</h1>
+        </div>
+        <div class="nav-site">
+            <ul>
+                {% for a in links %}
+                    <li><a href="{{ links[a].link }}">{{ a }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="main-body">
+            <div class="nav-page">
+                <h1>Recent Activity</h1>
+                <ul>
+                    <li>None</li>
+                </ul>
+            </div>
+            <div class="content">
+                <p>Can't find the page you're looking for.</p>
+            </div>
+        </div>
+    </body>
+</html>
