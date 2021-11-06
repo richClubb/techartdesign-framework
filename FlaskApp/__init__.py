@@ -11,9 +11,9 @@ from os.path import join, isdir
 app = Flask(__name__)
 Markdown(app)
 
-# I think this could be cleaner
-DIRECTORY = "/var/www/FlaskApp/FlaskApp/"
-CONTENT_DIR = "/var/www/FlaskApp/FlaskApp/content"
+
+CONFIG_FILE_PATH = "config.json"
+CONTENT_DIR = "/home/web/site-content/"
 
 # -------------------------------------------------------------- #
 
@@ -310,4 +310,16 @@ def recent_activity_blogs(number=0):
    return blog_list
 
 if __name__ == "__main__":
-   app.run(debug = True)
+
+   if os.path.isfile(CONFIG_FILE_PATH):
+      try:      
+         config_file = open(CONFIG_FILE_PATH, 'r')
+         config = load(config_file)
+
+         CONTENT_DIR = config["content_dir"]
+
+         app.run(debug = True)
+      except:
+         print("Error starting application")
+
+   
