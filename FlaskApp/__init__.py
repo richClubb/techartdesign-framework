@@ -309,7 +309,7 @@ def recent_activity_blogs(number=0):
 
    return blog_list
 
-@app.route('/cdn/<path:filename>')
+@app.route('/static/<path:filename>')
 def static_images(filename):
    return Flask.send_from_directory("/static/images", filename)
 
