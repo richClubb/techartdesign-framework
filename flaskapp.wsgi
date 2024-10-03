@@ -2,7 +2,7 @@
 import sys
 import logging
 logging.basicConfig(stream=sys.stderr)
-sys.path.insert(0,"/home/web/site-framework/")
+sys.path.insert(0,"/home/web/techartdesign-framework/")
 
 from FlaskApp import app as application
 application.secret_key = 'something super SUPER secret'
