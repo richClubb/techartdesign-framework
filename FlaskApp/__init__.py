@@ -13,7 +13,7 @@ Markdown(app)
 
 
 CONFIG_FILE_PATH = "config.json"
-CONTENT_DIR = "/home/web/site-content/"
+CONTENT_DIR = "/home/web/techartdesign-content/"
 
 # -------------------------------------------------------------- #
 
@@ -326,5 +326,6 @@ if __name__ == "__main__":
          app.run(debug = True)
       except:
          print("Error starting application")
-
+   else:
+      print("something went wrong")
    
