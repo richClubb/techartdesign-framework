@@ -14,6 +14,7 @@ Markdown(app)
 
 CONFIG_FILE_PATH = "config.json"
 CONTENT_DIR = "/home/web/techartdesign-content/"
+IMAGE_DIR = "/home/web/techartdesign-content/static/images"
 
 # -------------------------------------------------------------- #
 
@@ -311,7 +312,7 @@ def recent_activity_blogs(number=0):
 
 @app.route('/static/images/<filename>')
 def static_images(filename):
-   return Flask.send_from_directory("/static/images", filename)
+   return Flask.send_from_directory(IMAGE_DIR, filename)
 
 
 if __name__ == "__main__":
