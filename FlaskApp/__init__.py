@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+from flask import send_from_directory
 import markdown
 from markdown.extensions.toc import TocExtension
 from flaskext.markdown import Markdown
@@ -14,7 +15,7 @@ Markdown(app)
 
 CONFIG_FILE_PATH = "config.json"
 CONTENT_DIR = "/home/web/techartdesign-content/"
-IMAGE_DIR = "/home/web/techartdesign-content/static/images"
+IMAGE_DIR = "/home/web/techartdesign-content/images"
 
 # -------------------------------------------------------------- #
 
@@ -206,6 +207,10 @@ def contact():
                           links=json_nav_page_links,
                           activity_list=activity)
 
+@app.route("/images/<pageType>/<path>/<filename>")
+def static_images(pageType, path, filename):
+   return send_from_directory(join(IMAGE_DIR, pageType, path), filename)
+
 # -------------------------------------------------------------- #
 
 def load_page_nav():
@@ -309,10 +314,6 @@ def recent_activity_blogs(number=0):
          blog_list = blog_list[0:min(number, len(blog_list))]
 
    return blog_list
-
-@app.route('/static/images/<filename>')
-def static_images(filename):
-   return Flask.send_from_directory(IMAGE_DIR, filename)
 
 
 if __name__ == "__main__":
