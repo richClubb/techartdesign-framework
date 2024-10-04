@@ -42,8 +42,6 @@ def projects():
 
    recent_activity = recent_activity_projects(10)
 
-   print(recent_activity)
-
    projects = {}
    error_text = ""
 
