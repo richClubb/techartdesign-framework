@@ -64,6 +64,7 @@ p {
 .content {
     margin: 20px;
     color: red;
+    padding-left: 220px;
 }
 
 .project-brief {
