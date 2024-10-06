@@ -7,6 +7,8 @@ from flaskext.markdown import Markdown
 from json import load
 import os
 
+from datetime import datetime
+
 from os.path import join, isdir
 
 app = Flask(__name__)
@@ -36,7 +38,7 @@ def index():
    return render_template("index.html", links=json_nav_page_links, home_content=home_content, activity_list=activity)
 
 @app.route('/projects')
-def projects():
+def projects_page():
 
    json_nav_page_links = load_page_nav()
 
@@ -73,13 +75,18 @@ def projects():
          try:
             with open(file_path, 'r') as ff:
                json_data = load(ff)
-               projects[json_data["name"]] = { "topics" : json_data["topics"], "brief" : json_data["brief"], "link" : "/projects/" + project }
+               projects[json_data["name"]] = { 
+                     "topics" : json_data["topics"], 
+                     "brief" : json_data["brief"], 
+                     "link" : "/projects/" + project, 
+                     "date_posted" : datetime.strptime(json_data["date_posted"], "%Y-%m-%d")
+                  }
          except:
             continue
-
+         
    return render_template("projects.html", 
                           links=json_nav_page_links, 
-                          projects=projects,
+                          projects=dict(sorted(projects.items(), key=lambda x: x[1]['date_posted'], reverse=True)),
                           projects_overview_content=projects_overview_content, 
                           recent_activity_list=recent_activity, 
                           error_text=error_text)
