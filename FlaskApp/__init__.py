@@ -15,7 +15,7 @@ app = Flask(__name__)
 Markdown(app)
 
 
-CONFIG_FILE_PATH = "config.json"
+CONFIG_FILE_PATH = "/home/web/techartdesign-framework/config.json"
 CONTENT_DIR = "/home/web/techartdesign-content/"
 IMAGE_DIR = "/home/web/techartdesign-content/images"
 
@@ -330,7 +330,7 @@ if __name__ == "__main__":
 
          CONTENT_DIR = config["content_dir"]
 
-         app.run(debug = True)
+         app.run(debug = True, host = "0.0.0.0")
       except:
          print("Error starting application")
    else:
