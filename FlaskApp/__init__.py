@@ -14,7 +14,7 @@ from os.path import join, isdir
 app = Flask(__name__)
 Markdown(app)
 
-
+# I think these need to be env vars
 CONFIG_FILE_PATH = "/home/web/techartdesign-framework/config.json"
 CONTENT_DIR = "/home/web/techartdesign-content/"
 IMAGE_DIR = "/home/web/techartdesign-content/images"
